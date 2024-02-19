@@ -23,7 +23,7 @@ public class CarMovement : MonoBehaviour
     {
         _frontTireRB.AddTorque(-_moveInput * _speed * Time.fixedDeltaTime);
         _backTireRB.AddTorque(-_moveInput * _speed * Time.fixedDeltaTime);
-        _carRB.AddTorque(_moveInput * _speed * Time.fixedDeltaTime);
+        _carRB.AddTorque(_moveInput * _rotationSpeed * Time.fixedDeltaTime);
     }
 
 
