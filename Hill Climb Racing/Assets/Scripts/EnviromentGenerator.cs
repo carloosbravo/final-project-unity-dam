@@ -20,7 +20,7 @@ public class EnviromentGenerator : MonoBehaviour
     {
         _spriteShapeController.spline.Clear();
 
-        for(int i = 0; i < -_levelLenght; i++)
+        for(int i = 0; i < _levelLenght; i++)
         {
             _lastPos = transform.position + new Vector3(i * _xMultiplier, Mathf.PerlinNoise(0, i * _noiseStep) * _yMultiplier);
             _spriteShapeController.spline.InsertPointAt(i, _lastPos);  
@@ -38,6 +38,7 @@ public class EnviromentGenerator : MonoBehaviour
         _spriteShapeController.spline.InsertPointAt(_levelLenght, new Vector3(_lastPos.x, transform.position.y - _bottom));
         
         _spriteShapeController.spline.InsertPointAt(_levelLenght + 1, new Vector3(transform.position.x, transform.position.y -_bottom));
+        
 
     }
 
