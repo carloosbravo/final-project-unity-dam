@@ -19,12 +19,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    //game over method
     public void GameOver()
     {
         _gameOverCanvas.SetActive(true);
         Time.timeScale = 0f;
     }
 
+    //restart method for loading th scene
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

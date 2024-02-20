@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class FuelController : MonoBehaviour
 {
+
+    //interface elements (you can modify the serialize ones in the interfaze)
     public static FuelController instance;
 
     [SerializeField] private Image _fuelImage;
@@ -23,6 +25,7 @@ public class FuelController : MonoBehaviour
         }
     }
 
+    //when the game starts, the fuel bar is filled up with the max amount
     private void Start()
     {
         _currentFuelAmount = _maxFuelAmount;
@@ -30,6 +33,7 @@ public class FuelController : MonoBehaviour
 
     }
 
+    //fuel level is reduce as time passes
     private void Update()
     {
         _currentFuelAmount -= Time.deltaTime * _fuelDrainSpeed;
@@ -42,6 +46,8 @@ public class FuelController : MonoBehaviour
         }
     }
 
+    //updates the interfaze level of gas and the color with the gradle we included in the interfaze
+
     private void UpdateUI()
     {
         _fuelImage.fillAmount = (_currentFuelAmount / _maxFuelAmount);
@@ -49,6 +55,7 @@ public class FuelController : MonoBehaviour
         _fuelImage.color = _fuelGradient.Evaluate(_fuelImage.fillAmount);
     }
 
+    //whenever it touches a can of fuell it will fill up the level of gas
     public void FillFuel() 
     {
         _currentFuelAmount = _maxFuelAmount;
