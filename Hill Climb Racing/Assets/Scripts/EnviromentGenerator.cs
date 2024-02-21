@@ -7,7 +7,7 @@ public class EnviromentGenerator : MonoBehaviour
 {
     [SerializeField] private SpriteShapeController _spriteShapeController;
 
-    [SerializeField, Range(3f, 100f)] private int _levelLenght = 50;
+    [SerializeField, Range(3f, 1000f)] private int _levelLenght = 50;
     [SerializeField, Range(1f, 50f)] private float _xMultiplier = 2f;
     [SerializeField, Range(1f, 50f)] private float _yMultiplier = 2f;
     [SerializeField, Range(0f, 1f)] private float _curveSmoothness = 0.5f;
@@ -35,9 +35,9 @@ public class EnviromentGenerator : MonoBehaviour
         }
 
         
-        _spriteShapeController.spline.InsertPointAt(_levelLenght, new Vector3(_lastPos.x, transform.position.y - _bottom));
+        _spriteShapeController.spline.InsertPointAt(_levelLenght  , new Vector3(_lastPos.x, transform.position.y - _bottom));
         
-        _spriteShapeController.spline.InsertPointAt(_levelLenght + 1, new Vector3(transform.position.x, transform.position.y -_bottom));
+        _spriteShapeController.spline.InsertPointAt(_levelLenght +1, new Vector3(transform.position.x, transform.position.y -_bottom));
         
 
     }
