@@ -996,8 +996,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.3999, y: -9}
-  m_SizeDelta: {x: 10.7997, y: 47.519}
+  m_AnchoredPosition: {x: 0, y: 7.379799}
+  m_SizeDelta: {x: 0, y: 14.759}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1292181437
 MonoBehaviour:
@@ -1459,7 +1459,7 @@ GameObject:
   - component: {fileID: 1627928497}
   - component: {fileID: 1627928501}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

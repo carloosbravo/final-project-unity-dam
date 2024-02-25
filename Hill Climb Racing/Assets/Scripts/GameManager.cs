@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+
+
     //start level Tierra
     public void StartLevelTierra()
     {
@@ -58,5 +60,17 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Level2Nieve");
     }
-   
+
+    public void backToLevelSelector()
+    {
+        SceneManager.LoadScene("Menu");
+
+        
+    }
+
+    public void PauseGame()
+    {
+
+    }
+
 }
