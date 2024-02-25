@@ -31,4 +31,19 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+
+    //menu methods
+    public void Play()
+    {
+        //method for loading the next scene  (choosing a level).
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    //method for quitting and closing the game
+    public void ExitGame()
+    {
+        Debug.Log("closing the game....");
+        Application.Quit();
+    }
 }
