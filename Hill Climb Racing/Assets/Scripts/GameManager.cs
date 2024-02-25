@@ -46,4 +46,17 @@ public class GameManager : MonoBehaviour
         Debug.Log("closing the game....");
         Application.Quit();
     }
+
+    //start level Tierra
+    public void StartLevelTierra()
+    {
+        SceneManager.LoadScene("Level1Tierra");
+    }
+
+    //start level Tierra
+    public void StartLevelSnow()
+    {
+        SceneManager.LoadScene("Level2Nieve");
+    }
+   
 }
