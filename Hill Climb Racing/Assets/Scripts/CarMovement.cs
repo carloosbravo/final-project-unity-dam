@@ -13,8 +13,9 @@ public class CarMovement : MonoBehaviour
     private void Update()
     {
 #if UNITY_EDITOR || UNITY_STANDALONE
-        // Detects the keyboard for pc
+        // Detects the keyboard for pc right arrow, left arrow, a, d
         _moveInput = Input.GetAxisRaw("Horizontal");
+
 #elif UNITY_ANDROID
         // Detectar entrada de pantalla táctil 
         if (Input.touchCount > 0)
@@ -35,6 +36,7 @@ public class CarMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //movement for the tires and the car in the air
         _frontTireRB.AddTorque(-_moveInput * _speed * Time.fixedDeltaTime);
         _backTireRB.AddTorque(-_moveInput * _speed * Time.fixedDeltaTime);
         _carRB.AddTorque(_moveInput * _rotationSpeed * Time.fixedDeltaTime);
