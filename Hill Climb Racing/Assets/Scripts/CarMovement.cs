@@ -17,27 +17,31 @@ public class CarMovement : MonoBehaviour
 
     private void Update()
     {
-#if UNITY_EDITOR || UNITY_STANDALONE
-        // Detects the keyboard for pc right arrow, left arrow, a, d
+    //#if UNITY_EDITOR || UNITY_STANDALONE
+        // Detecta las teclas de flecha derecha, flecha izquierda, a y d en el teclado para PC
         _moveInput = Input.GetAxisRaw("Horizontal");
-
-#elif UNITY_ANDROID
-        // Detectar entrada de pantalla t�ctil 
-        if (Input.touchCount > 0)
+//#elif UNITY_ANDROID || UNITY_IOS
+    // se supone que deberia meterlo para android
+    if (Input.touchCount > 0)
+    {
+        Touch touch = Input.GetTouch(0);
+        float middleOfScreen = Screen.width / 2f;
+        if (touch.position.x < middleOfScreen)
         {
-            Touch touch = Input.GetTouch(0);
-            float middleOfScreen = Screen.width / 2f;
-            if (touch.position.x < middleOfScreen)
-                _moveInput = -1f; // Mover a la izquierda
-            else
-                _moveInput = 1f; // Mover a la derecha
+            _moveInput = -1f; // Mover hacia atrás si toca el lado izquierdo de la pantalla
         }
         else
         {
-            _moveInput = 0f; // Si no hay toque, no mover
+            _moveInput = 1f; // Mover hacia adelante si toca el lado derecho de la pantalla
         }
-#endif
     }
+    else
+    {
+        _moveInput = 0f; // Si no hay toque, no mover
+    }
+//#endif
+    }
+
 
     private void FixedUpdate()
     {
