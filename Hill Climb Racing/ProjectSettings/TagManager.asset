@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - coin5
+  - Meta
   layers:
   - Default
   - TransparentFX

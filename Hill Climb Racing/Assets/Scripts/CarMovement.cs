@@ -10,12 +10,11 @@ public class CarMovement : MonoBehaviour
     [SerializeField] private float _speed = 150f;
     [SerializeField] private float _rotationSpeed = 300f;
 
-    public float _moveInput;
+    private float _moveInput = 0f;
 
     private void Update()
     {
-        //esto devuelve valor que representa la derecha como D o flecha derecha
-
+        // Detectar entrada de teclado
         _moveInput = Input.GetAxisRaw("Horizontal");
     }
 
@@ -25,7 +24,4 @@ public class CarMovement : MonoBehaviour
         _backTireRB.AddTorque(-_moveInput * _speed * Time.fixedDeltaTime);
         _carRB.AddTorque(_moveInput * _rotationSpeed * Time.fixedDeltaTime);
     }
-
-
-   
 }

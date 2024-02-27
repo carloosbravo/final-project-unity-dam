@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class Winning : MonoBehaviour
 {
-    [SerializeField] private Canvas _winingCanvas;
-    private void OnTriggerEnter2D(Collider2D col)
-
+    [SerializeField] private GameObject _winingCanvas;
+    [SerializeField] private GameObject _interfaceCanvas;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // we give to the whole car the tag 'player' so when it touches the can of gas the methos fillfuel is called.
-        if (col.gameObject.CompareTag("Player"))
+        //if the player enters the finishing line it will active de canvas 
+        if (collision.CompareTag("Meta")) 
         {
-            _winingCanvas.gameObject.SetActive(true);
+            // Show the canvas of winning
+            _winingCanvas.SetActive(true);
+            _interfaceCanvas.SetActive(false);
         }
     }
 }
