@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ice_shape_0: 3767214168063745737
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
