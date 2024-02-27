@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CarMovement : MonoBehaviour
@@ -10,9 +8,35 @@ public class CarMovement : MonoBehaviour
     [SerializeField] private float _speed = 150f;
     [SerializeField] private float _rotationSpeed = 300f;
     [SerializeField] private AudioSource _carAudioSource; // Referencia al AudioSource
-    [SerializeField] private float _maxVolume = 0.5f; // Volumen máximo del sonido
-    [SerializeField] private float _minVolume = 0.2f; // Volumen mínimo del sonido
+    [SerializeField] private float _maxVolume = 0.5f; // Volumen mï¿½ximo del sonido
+    [SerializeField] private float _minVolume = 0.2f; // Volumen mï¿½nimo del sonido
     [SerializeField] private float _volumeMultiplier = 0.5f; // Multiplicador de volumen basado en la velocidad
+
+
+    private float _moveInput = 0f;
+
+    private void Update()
+    {
+#if UNITY_EDITOR || UNITY_STANDALONE
+        // Detects the keyboard for pc
+        _moveInput = Input.GetAxisRaw("Horizontal");
+#elif UNITY_ANDROID
+        // Detectar entrada de pantalla tï¿½ctil 
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            float middleOfScreen = Screen.width / 2f;
+            if (touch.position.x < middleOfScreen)
+                _moveInput = -1f; // Mover a la izquierda
+            else
+                _moveInput = 1f; // Mover a la derecha
+        }
+        else
+        {
+            _moveInput = 0f; // Si no hay toque, no mover
+        }
+#endif
+    }
 
     private void FixedUpdate()
     {
@@ -23,13 +47,13 @@ public class CarMovement : MonoBehaviour
         float targetVolume = Mathf.Lerp(_minVolume, _maxVolume, carSpeed * _volumeMultiplier);
         _carAudioSource.volume = targetVolume;
 
-        // Aplicar fuerzas de movimiento y rotación
+        // Aplicar fuerzas de movimiento y rotaciï¿½n
         float moveInput = Input.GetAxisRaw("Horizontal");
         _frontTireRB.AddTorque(-moveInput * _speed * Time.fixedDeltaTime);
         _backTireRB.AddTorque(-moveInput * _speed * Time.fixedDeltaTime);
         _carRB.AddTorque(moveInput * _rotationSpeed * Time.fixedDeltaTime);
 
-        // Reproducir sonido si el coche se está moviendo
+        // Reproducir sonido si el coche se estï¿½ moviendo
         if (carSpeed > 0 && !_carAudioSource.isPlaying)
         {
             _carAudioSource.Play();
