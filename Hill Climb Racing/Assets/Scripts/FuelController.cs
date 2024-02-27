@@ -39,6 +39,7 @@ public class FuelController : MonoBehaviour
         _currentFuelAmount -= Time.deltaTime * _fuelDrainSpeed;
         UpdateUI();
 
+        //if fuel is 0  gameover
         if(_currentFuelAmount <= 0f)
         {
             GameManager.Instance.GameOver(); 
@@ -46,7 +47,7 @@ public class FuelController : MonoBehaviour
         }
     }
 
-    //updates the interfaze level of gas and the color with the gradle we included in the interfaze
+    //updates the interface level of gas and the color with the gradle we included in the interface
 
     private void UpdateUI()
     {
@@ -55,7 +56,7 @@ public class FuelController : MonoBehaviour
         _fuelImage.color = _fuelGradient.Evaluate(_fuelImage.fillAmount);
     }
 
-    //whenever it touches a can of fuell it will fill up the level of gas
+    //whenever it touches a can of fuell it will fill up the level of gas and starts to drain
     public void FillFuel() 
     {
         _currentFuelAmount = _maxFuelAmount;
