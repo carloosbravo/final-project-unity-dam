@@ -7,10 +7,13 @@ public class CoinCollector : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _coinCounterText;
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+
+       
             // Convertir el valor del TextMeshProUGUI a un número entero
             int contadorCoin = int.Parse(_coinCounterText.text);
 
