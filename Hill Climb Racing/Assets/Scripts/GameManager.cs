@@ -61,6 +61,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Level2Nieve");
     }
 
+        //start level Monster
+    public void StartLevelMoster()
+    {
+        SceneManager.LoadScene("Level3Monster");
+    }
+
     public void backToLevelSelector()
     {
         SceneManager.LoadScene("Menu");
